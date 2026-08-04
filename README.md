@@ -1,126 +1,75 @@
-# Arif Khan Portfolio Website
+# React + TypeScript + Vite
 
-Professional personal portfolio website built as part of the FlyRank AI Internship Build Phase.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Overview
+Currently, two official plugins are available:
 
-This project creates a personal developer website that acts as a central professional identity.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-The website showcases:
+## React Compiler
 
-- Professional background
-- Engineering skills
-- Software projects
-- AI engineering journey
-- GitHub repositories
-- LinkedIn profile
-- Resume
-- Future technical articles and capstone work
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-The goal is to create a permanent online presence that is independent from third-party platforms.
+## Expanding the ESLint configuration
 
----
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-## Project Motivation
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-A developer's portfolio should not depend only on external platforms.
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
 
-This website provides:
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 
-- Personal branding
-- A recruiter-friendly profile
-- A single place to showcase engineering work
-- Ownership of professional identity
+```
 
----
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-## Tech Stack
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-Frontend:
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 
-- React
-- TypeScript
-- Vite
-- Tailwind CSS
-- Framer Motion
-
-Deployment:
-
-- Netlify
-- HTTPS
-- Custom Domain Ready
-
-Version Control:
-
-- Git
-- GitHub
-
----
-
-## Features
-
-Current:
-
-- Professional landing page
-- About section
-- Projects showcase
-- Skills overview
-- Contact information
-- Resume integration
-- Social profile links
-
-Future:
-
-- Technical blog
-- AI engineering articles
-- Project case studies
-- Capstone showcase
-
----
-
-## Local Development
-
-Install dependencies:
-
-```bash
-npm install
-
-Run development server:
-
-npm run dev
-
-Create production build:
-
-npm run build
-
-Deployment
-
-The project is deployed using Netlify.
-
-Deployment provides:
-
-Public HTTPS URL
-Automatic SSL certificate
-Continuous deployment from GitHub
-Custom domain support
-Project Documentation
-
-Additional documentation:
-
-SPEC.md - Technical requirements
-PLAN.md - Development roadmap
-WHY_THIS_PROJECT.md - Project purpose
-RULES.md - Engineering rules
-docs/dns-walkthrough.md - DNS explanation
-Author
-
-Arif Khan
-
-Software Engineering Student
-Backend AI Engineer Aspirant
-
-Links:
-
-GitHub
-LinkedIn
-Resume
+```
