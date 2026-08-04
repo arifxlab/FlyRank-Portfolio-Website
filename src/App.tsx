@@ -1,5 +1,10 @@
 import Footer from "./components/layout/Footer";
 import Navbar from "./components/layout/Navbar";
+import Hero from "./sections/Hero";
+import About from "./sections/About";
+import Projects from "./sections/Projects";
+import Skills from "./sections/Skills";
+import Contact from "./sections/Contact";
 
 function App() {
     return (
@@ -7,17 +12,11 @@ function App() {
             <Navbar />
 
             <main>
-                <section className="flex min-h-screen items-center justify-center">
-                    <div className="text-center">
-                        <h1 className="text-5xl font-bold">
-                            Arif Khan Portfolio
-                        </h1>
-
-                        <p className="mt-4 text-gray-400">
-                            Backend AI Engineer building scalable systems.
-                        </p>
-                    </div>
-                </section>
+                <Hero />
+                <About />
+                <Projects />
+                <Skills />
+                <Contact />
             </main>
 
             <Footer />
