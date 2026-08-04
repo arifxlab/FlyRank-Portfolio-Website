@@ -6,14 +6,18 @@ export interface SocialLink {
 export const socialLinks: SocialLink[] = [
     {
         name: "GitHub",
-        url: "#",
+        url: "https://github.com/arifxlab",
     },
     {
         name: "LinkedIn",
-        url: "#",
+        url: "https://www.linkedin.com/in/arif-khan-086a5a405/",
     },
     {
         name: "Resume",
-        url: "#",
+        url: "/resume.pdf",
+    },
+    {
+        name: "Booking",
+        url: "https://calendar.google.com/calendar/u/0/r",
     },
 ];
