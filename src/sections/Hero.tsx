@@ -17,9 +17,18 @@ function Hero() {
         <section className="flex min-h-screen items-center pt-20">
             <Container>
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
+                    initial={{
+                        opacity: 0,
+                        y: 24,
+                    }}
+                    animate={{
+                        opacity: 1,
+                        y: 0,
+                    }}
+                    transition={{
+                        duration: 0.6,
+                        ease: "easeOut",
+                    }}
                     className="mx-auto max-w-5xl"
                 >
                     <HeroBadge />
