@@ -1,12 +1,16 @@
 import { motion } from "framer-motion";
-import Container from "../components/layout/Container";
-import Button from "../components/ui/Button";
 
-const highlights = [
-    "AI Engineering",
-    "Backend Systems",
-    "Distributed Architecture",
-];
+import Container from "../components/layout/Container";
+
+import HeroBadge from "../components/hero/HeroBadge";
+import HeroActions from "../components/hero/HeroActions";
+import HeroTechStack from "../components/hero/HeroTechStack";
+import HeroStats from "../components/hero/HeroStats";
+
+import {
+    heroTitle,
+    heroDescription,
+} from "../data/hero";
 
 function Hero() {
     return (
@@ -16,44 +20,23 @@ function Hero() {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
-                    className="max-w-4xl"
+                    className="mx-auto max-w-5xl"
                 >
-                    <p className="mb-4 text-sm uppercase tracking-[0.3em] text-gray-400">
-                        Backend AI Engineer
-                    </p>
+                    <HeroBadge />
 
-                    <h1 className="text-5xl font-bold tracking-tight text-white md:text-7xl">
-                        Building scalable backend systems and intelligent AI applications.
+                    <h1 className="mt-8 max-w-4xl text-5xl font-bold leading-tight tracking-tight text-white md:text-7xl">
+                        {heroTitle}
                     </h1>
 
-                    <p className="mt-6 max-w-2xl text-lg text-gray-400">
-                        I build production-focused software systems, AI applications,
-                        and backend infrastructure with modern engineering practices.
+                    <p className="mt-8 max-w-3xl text-lg leading-8 text-gray-400">
+                        {heroDescription}
                     </p>
 
-                    <div className="mt-8 flex flex-wrap gap-3">
-                        {highlights.map((item) => (
-                            <span
-                                key={item}
-                                className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-300"
-                            >
-                {item}
-              </span>
-                        ))}
-                    </div>
+                    <HeroActions />
 
-                    <div className="mt-10 flex flex-wrap gap-4">
-                        <Button href="#projects">
-                            View Projects
-                        </Button>
+                    <HeroTechStack />
 
-                        <Button
-                            href="#contact"
-                            variant="secondary"
-                        >
-                            Contact Me
-                        </Button>
-                    </div>
+                    <HeroStats />
                 </motion.div>
             </Container>
         </section>

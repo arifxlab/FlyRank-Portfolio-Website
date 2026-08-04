@@ -1,8 +1,14 @@
+import { motion } from "framer-motion";
 import { heroTechStack } from "../../data/hero";
 
 function HeroTechStack() {
     return (
-        <div className="mt-8 flex flex-wrap gap-3">
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.5 }}
+            className="mt-8 flex flex-wrap gap-3"
+        >
             {heroTechStack.map((technology) => (
                 <span
                     key={technology}
@@ -11,7 +17,7 @@ function HeroTechStack() {
                     {technology}
                 </span>
             ))}
-        </div>
+        </motion.div>
     );
 }
 
