@@ -1,45 +1,21 @@
 import Container from "../components/layout/Container";
-import SectionTitle from "../components/ui/SectionTitle";
+import AboutCard from "../components/about/AboutCard";
+import AboutHighlights from "../components/about/AboutHighlights";
+import AboutStats from "../components/about/AboutStats";
 
 function About() {
     return (
         <section
             id="about"
-            className="py-24"
+            className="py-24 md:py-32"
         >
             <Container>
-                <SectionTitle
-                    eyebrow="About Me"
-                    title="Building software systems with engineering depth."
-                    description="My focus is backend engineering, artificial intelligence,
-          and scalable system design."
-                />
+                <div className="mx-auto max-w-6xl">
+                    <AboutCard />
 
-                <div className="mt-12 grid gap-8 md:grid-cols-2">
-                    <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-                        <h3 className="text-xl font-semibold text-white">
-                            Engineering Focus
-                        </h3>
+                    <AboutHighlights />
 
-                        <p className="mt-4 text-gray-400">
-                            I build backend platforms, AI-powered applications,
-                            and developer tools using technologies like Python,
-                            Java, FastAPI, Spring Boot, Laravel, PostgreSQL,
-                            Docker, and modern AI infrastructure.
-                        </p>
-                    </div>
-
-                    <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-                        <h3 className="text-xl font-semibold text-white">
-                            Development Philosophy
-                        </h3>
-
-                        <p className="mt-4 text-gray-400">
-                            I believe strong software comes from clean architecture,
-                            maintainable code, thoughtful system design, and solving
-                            real-world problems through technology.
-                        </p>
-                    </div>
+                    <AboutStats />
                 </div>
             </Container>
         </section>
