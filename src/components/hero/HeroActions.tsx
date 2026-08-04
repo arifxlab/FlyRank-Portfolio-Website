@@ -1,18 +1,18 @@
 import Button from "../ui/Button";
+import { heroActions } from "../../data/hero";
 
 function HeroActions() {
     return (
         <div className="mt-10 flex flex-wrap gap-4">
-            <Button href="#projects">
-                Explore Projects
-            </Button>
-
-            <Button
-                href="/resume.pdf"
-                variant="secondary"
-            >
-                Download Resume
-            </Button>
+            {heroActions.map((action) => (
+                <Button
+                    key={action.label}
+                    href={action.href}
+                    variant={action.variant}
+                >
+                    {action.label}
+                </Button>
+            ))}
         </div>
     );
 }
