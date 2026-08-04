@@ -1,9 +1,13 @@
+import { motion } from "framer-motion";
+
 interface ProjectCardProps {
     title: string;
     description: string;
     technologies: string[];
     github?: string;
     demo?: string;
+    featured: boolean;
+    status: "Completed" | "In Progress";
 }
 
 function ProjectCard({
@@ -12,37 +16,67 @@ function ProjectCard({
                          technologies,
                          github,
                          demo,
+                         featured,
+                         status,
                      }: ProjectCardProps) {
     return (
-        <article className="group rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:border-white/20 hover:bg-white/10">
-            <h3 className="text-xl font-semibold text-white">
+        <motion.article
+            whileHover={{
+                y: -8,
+                scale: 1.01,
+            }}
+            transition={{ duration: 0.25 }}
+            className="flex h-full flex-col rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg transition-all duration-300 hover:border-cyan-400/40 hover:shadow-cyan-500/10"
+        >
+            <div className="mb-6 flex items-center justify-between">
+                {featured ? (
+                    <span className="rounded-full border border-cyan-500/20 bg-cyan-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-cyan-300">
+                        Featured
+                    </span>
+                ) : (
+                    <span />
+                )}
+
+                <span
+                    className={`rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wide ${
+                        status === "Completed"
+                            ? "bg-emerald-500/10 text-emerald-300"
+                            : "bg-amber-500/10 text-amber-300"
+                    }`}
+                >
+                    {status}
+                </span>
+            </div>
+
+            <h3 className="text-2xl font-bold text-white">
                 {title}
             </h3>
 
-            <p className="mt-3 text-gray-400">
+            <p className="mt-4 flex-1 leading-7 text-gray-400">
                 {description}
             </p>
 
-            <div className="mt-5 flex flex-wrap gap-2">
+            <div className="mt-6 flex flex-wrap gap-2">
                 {technologies.map((technology) => (
                     <span
                         key={technology}
-                        className="rounded-full border border-white/10 px-3 py-1 text-xs text-gray-300"
+                        className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-gray-300 transition-colors duration-300 hover:border-cyan-400/40 hover:text-cyan-300"
                     >
-            {technology}
-          </span>
+                        {technology}
+                    </span>
                 ))}
             </div>
 
-            <div className="mt-6 flex gap-4">
+            <div className="mt-8 flex gap-6 border-t border-white/10 pt-6">
                 {github && (
                     <a
                         href={github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm text-gray-300 transition hover:text-white"
+                        aria-label={`View ${title} source code on GitHub`}
+                        className="font-medium text-cyan-400 transition-colors hover:text-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-black"
                     >
-                        GitHub
+                        GitHub ↗
                     </a>
                 )}
 
@@ -51,13 +85,14 @@ function ProjectCard({
                         href={demo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm text-gray-300 transition hover:text-white"
+                        aria-label={`Open live demo for ${title}`}
+                        className="font-medium text-cyan-400 transition-colors hover:text-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-black"
                     >
-                        Live Demo
+                        Live Demo ↗
                     </a>
                 )}
             </div>
-        </article>
+        </motion.article>
     );
 }
 

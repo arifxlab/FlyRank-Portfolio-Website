@@ -4,40 +4,56 @@ export interface Project {
     technologies: string[];
     github?: string;
     demo?: string;
+    featured: boolean;
+    status: "Completed" | "In Progress";
 }
 
 export const projects: Project[] = [
     {
         title: "RAGForge",
         description:
-            "Enterprise AI Knowledge Engine built with FastAPI, PostgreSQL, Qdrant, and Redis.",
+            "Enterprise AI Knowledge Engine built with FastAPI, PostgreSQL, Qdrant, Redis, Docker, and Retrieval-Augmented Generation.",
         technologies: [
             "Python",
             "FastAPI",
             "PostgreSQL",
-            "Qdrant",
             "Redis",
+            "Qdrant",
+            "Docker",
         ],
+        github: "https://github.com/arifxlab/RAGForge",
+        demo: "",
+        featured: true,
+        status: "In Progress",
     },
     {
         title: "Dev Assistant AI",
         description:
-            "AI-powered code analysis backend using AST processing for intelligent code review.",
+            "Production-focused AI code analysis backend using AST parsing, FastAPI, and intelligent review pipelines.",
         technologies: [
             "Python",
             "FastAPI",
             "AST",
-            "AI",
+            "OpenAI",
         ],
+        github: "https://github.com/arifxlab",
+        demo: "",
+        featured: true,
+        status: "Completed",
     },
     {
         title: "CarpeFlow CRM",
         description:
-            "Business CRM platform designed with Laravel and PostgreSQL.",
+            "Modern CRM platform built with Laravel, PostgreSQL, Docker, and enterprise backend architecture.",
         technologies: [
             "PHP",
             "Laravel",
             "PostgreSQL",
+            "Docker",
         ],
+        github: "https://github.com/arifxlab",
+        demo: "",
+        featured: true,
+        status: "In Progress",
     },
 ];
