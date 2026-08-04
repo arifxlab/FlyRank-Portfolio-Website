@@ -1,11 +1,15 @@
 export interface SkillGroup {
     category: string;
     skills: string[];
+    level: "Advanced" | "Intermediate";
+    featured: boolean;
 }
 
 export const skillGroups: SkillGroup[] = [
     {
         category: "Languages",
+        level: "Advanced",
+        featured: true,
         skills: [
             "Python",
             "Java",
@@ -15,6 +19,8 @@ export const skillGroups: SkillGroup[] = [
     },
     {
         category: "Backend",
+        level: "Advanced",
+        featured: true,
         skills: [
             "FastAPI",
             "Spring Boot",
@@ -25,6 +31,8 @@ export const skillGroups: SkillGroup[] = [
     },
     {
         category: "AI Engineering",
+        level: "Advanced",
+        featured: true,
         skills: [
             "RAG Systems",
             "LLM Applications",
@@ -34,6 +42,8 @@ export const skillGroups: SkillGroup[] = [
     },
     {
         category: "Infrastructure",
+        level: "Intermediate",
+        featured: true,
         skills: [
             "Docker",
             "PostgreSQL",
