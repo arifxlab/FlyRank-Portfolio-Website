@@ -306,10 +306,10 @@ Final screenshots should be captured from the completed live deployment.
 - [x] ESLint passed
 - [x] Production build passed
 - [x] Git diff validation passed
-- [ ] Final live-site verification
-- [ ] Final screenshots
-- [ ] Git commit and push
-- [ ] FlyRank submission
+- [x] Final live-site verification
+- [x] Final screenshots
+- [x] Git commit and push
+- [] FlyRank submission
 
 ---
 
@@ -329,4 +329,6 @@ Final screenshots should be captured from the completed live deployment.
 
 **Production Build:** Passed
 
-**Submission Status:** Ready for final deployment evidence and FlyRank submission.
+**Deployment:** Verified
+
+**Submission Status:** Ready for FlyRank submission.
