@@ -51,7 +51,7 @@ export const projects: Project[] = [
             "PostgreSQL",
             "Docker",
         ],
-        github: "https://github.com/arifxlab",
+        github: "https://github.com/arifxlab/carpeflow-crm",
         demo: "",
         featured: true,
         status: "In Progress",
