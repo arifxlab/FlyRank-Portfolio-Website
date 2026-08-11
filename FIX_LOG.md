@@ -63,7 +63,15 @@ Replace the Markdown-formatted value with the direct LinkedIn URL.
 
 LinkedIn is stored as a valid direct URL.
 
-**Status:** Pending
+### Issue #1 — LinkedIn URL Data Error
+
+**Status:** Fixed
+
+The LinkedIn URL was stored using Markdown link syntax instead of a direct URL.
+
+The value was replaced with the correct direct LinkedIn profile URL.
+
+Manual browser verification is required because LinkedIn blocks automated HTTP requests.
 
 ---
 
@@ -85,7 +93,9 @@ Verify the actual repositories and use direct project repository URLs where avai
 
 Project links should point directly to the corresponding repositories.
 
-**Status:** Pending
+**Status:** Fixed
+
+The project GitHub link was changed from the general GitHub profile to the verified Dev Assistant AI repository.
 
 ---
 
