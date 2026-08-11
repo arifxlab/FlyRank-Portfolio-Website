@@ -1,4 +1,4 @@
-export interface SocialLink {
+﻿export interface SocialLink {
     name: string;
     url: string;
     description: string;

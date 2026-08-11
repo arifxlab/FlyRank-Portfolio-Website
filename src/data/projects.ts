@@ -36,7 +36,7 @@ export const projects: Project[] = [
             "AST",
             "OpenAI",
         ],
-        github: "https://github.com/arifxlab",
+        github: "https://github.com/arifxlab/Dev-Assistant-AI",
         demo: "",
         featured: true,
         status: "Completed",
