@@ -4,6 +4,9 @@ interface ProjectCardProps {
     title: string;
     description: string;
     technologies: string[];
+    highlights: string[];
+    architecture: string;
+    category: "AI Engineering" | "Backend Engineering";
     github?: string;
     demo?: string;
     featured: boolean;
@@ -14,6 +17,9 @@ function ProjectCard({
                          title,
                          description,
                          technologies,
+                         highlights,
+                         architecture,
+                         category,
                          github,
                          demo,
                          featured,
@@ -25,17 +31,21 @@ function ProjectCard({
             transition={{ duration: 0.25 }}
             className="group flex h-full flex-col rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/[0.07] hover:shadow-cyan-500/10"
         >
-            <div className="mb-6 flex items-center justify-between">
-                {featured ? (
-                    <span className="rounded-full border border-cyan-500/20 bg-cyan-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-cyan-300">
-                        Featured
+            <div className="mb-6 flex items-center justify-between gap-3">
+                <div className="flex flex-wrap gap-2">
+                    {featured && (
+                        <span className="rounded-full border border-cyan-500/20 bg-cyan-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-cyan-300">
+                            Featured
+                        </span>
+                    )}
+
+                    <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-gray-400">
+                        {category}
                     </span>
-                ) : (
-                    <span />
-                )}
+                </div>
 
                 <span
-                    className={`rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wide ${
+                    className={`shrink-0 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wide ${
                         status === "Completed"
                             ? "bg-emerald-500/10 text-emerald-300"
                             : "bg-amber-500/10 text-amber-300"
@@ -49,9 +59,41 @@ function ProjectCard({
                 {title}
             </h3>
 
-            <p className="mt-4 flex-1 leading-7 text-gray-400">
+            <p className="mt-4 leading-7 text-gray-400">
                 {description}
             </p>
+
+            <div className="mt-6">
+                <h4 className="text-sm font-semibold uppercase tracking-wider text-gray-300">
+                    Engineering Highlights
+                </h4>
+
+                <ul className="mt-3 space-y-2">
+                    {highlights.map((highlight) => (
+                        <li
+                            key={highlight}
+                            className="flex items-start gap-2 text-sm leading-6 text-gray-400"
+                        >
+                            <span
+                                aria-hidden="true"
+                                className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-400"
+                            />
+
+                            <span>{highlight}</span>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+
+            <div className="mt-6 rounded-xl border border-white/10 bg-black/20 p-4">
+                <h4 className="text-sm font-semibold uppercase tracking-wider text-gray-300">
+                    Architecture
+                </h4>
+
+                <p className="mt-2 text-sm leading-6 text-gray-500">
+                    {architecture}
+                </p>
+            </div>
 
             <div className="mt-6 flex flex-wrap gap-2">
                 {technologies.map((technology) => (
@@ -64,31 +106,33 @@ function ProjectCard({
                 ))}
             </div>
 
-            <div className="mt-8 flex gap-6 border-t border-white/10 pt-6">
-                {github && (
-                    <a
-                        href={github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`View ${title} source code on GitHub`}
-                        className="font-medium text-cyan-400 transition-all duration-300 hover:text-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-black"
-                    >
-                        GitHub ↗
-                    </a>
-                )}
+            {(github || demo) && (
+                <div className="mt-8 flex gap-6 border-t border-white/10 pt-6">
+                    {github && (
+                        <a
+                            href={github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`View ${title} source code on GitHub`}
+                            className="font-medium text-cyan-400 transition-all duration-300 hover:text-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-black"
+                        >
+                            GitHub ↗
+                        </a>
+                    )}
 
-                {demo && demo.trim() !== "" && (
-                    <a
-                        href={demo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`Open live demo for ${title}`}
-                        className="font-medium text-cyan-400 transition-all duration-300 hover:text-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-black"
-                    >
-                        Live Demo ↗
-                    </a>
-                )}
-            </div>
+                    {demo && demo.trim() !== "" && (
+                        <a
+                            href={demo}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`Open live demo for ${title}`}
+                            className="font-medium text-cyan-400 transition-all duration-300 hover:text-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-black"
+                        >
+                            Live Demo ↗
+                        </a>
+                    )}
+                </div>
+            )}
         </motion.article>
     );
 }

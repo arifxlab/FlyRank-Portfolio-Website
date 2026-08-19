@@ -59,6 +59,9 @@ function Projects() {
                                     title={project.title}
                                     description={project.description}
                                     technologies={project.technologies}
+                                    highlights={project.highlights}
+                                    architecture={project.architecture}
+                                    category={project.category}
                                     github={project.github}
                                     demo={project.demo}
                                     featured={project.featured}
