@@ -1,4 +1,4 @@
-export interface AboutHighlight {
+﻿export interface AboutHighlight {
     title: string;
     description: string;
 }

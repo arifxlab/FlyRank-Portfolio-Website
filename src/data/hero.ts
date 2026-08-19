@@ -10,13 +10,13 @@ export interface HeroAction {
 }
 
 export const heroBadge =
-    "Available for Backend AI Engineering Opportunities";
+    "Backend AI Engineer • AI Systems • Backend Infrastructure";
 
 export const heroTitle =
     "Building scalable backend systems and intelligent AI applications.";
 
 export const heroDescription =
-    "I build production-focused backend systems, AI applications, APIs, enterprise software, and intelligent infrastructure using modern engineering practices.";
+    "I design and build production-focused backend systems, AI applications, enterprise APIs, and intelligent infrastructure with Python, FastAPI, Spring Boot, Laravel, PostgreSQL, and modern AI tooling.";
 
 export const heroTechStack = [
     "Python",
@@ -27,8 +27,8 @@ export const heroTechStack = [
     "Docker",
     "Redis",
     "Qdrant",
-    "AI Agents",
     "RAG",
+    "AI Agents",
     "TypeScript",
 ];
 
@@ -47,16 +47,16 @@ export const heroActions: HeroAction[] = [
 
 export const heroStats: HeroStat[] = [
     {
-        value: "3+",
-        label: "Years Learning",
-    },
-    {
         value: "15+",
         label: "Projects Built",
     },
     {
-        value: "20+",
-        label: "Technologies",
+        value: "3",
+        label: "Backend Stacks",
+    },
+    {
+        value: "4",
+        label: "AI System Areas",
     },
     {
         value: "100%",
