@@ -83,4 +83,31 @@ export const projects: Project[] = [
         featured: true,
         status: "In Progress",
     },
+    {
+        title: "TrustMesh-AI",
+        description:
+            "Production-oriented backend foundation for a secure, multi-tenant AI knowledge intelligence platform.",
+        technologies: [
+            "Python",
+            "FastAPI",
+            "PostgreSQL",
+            "SQLAlchemy",
+            "Alembic",
+            "JWT",
+            "Docker",
+        ],
+        highlights: [
+            "Multi-tenant organization architecture",
+            "JWT authentication and RBAC",
+            "Repository and service separation",
+            "81 automated tests",
+        ],
+        architecture:
+            "Layered FastAPI backend with authentication, organization-scoped authorization, service and repository layers, asynchronous PostgreSQL persistence, and Alembic migrations.",
+        category: "AI Engineering",
+        github: "https://github.com/arifxlab/TrustMesh-AI",
+        demo: "",
+        featured: true,
+        status: "Completed",
+    },
 ];
