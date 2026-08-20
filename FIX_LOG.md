@@ -289,7 +289,7 @@ Final screenshots should be captured from the completed live deployment.
 - [x] Real mobile-device audit
 - [x] Mobile navigation verified
 - [x] Mobile layout verified
-- [ ] Tablet layout verified
+- [x] Tablet layout verified
 - [x] Desktop layout verified
 - [x] Text readability verified
 - [x] Tap targets verified
